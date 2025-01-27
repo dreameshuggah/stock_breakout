@@ -1,6 +1,6 @@
-streamlit
-pandas
-numpy
-pandasql
-yfinance
+streamlit==1.38.0
+pandas==2.2.2
+numpy==1.26.4
+pandasql==0.7.3
+yfinance==0.2.43
 plotly.express
