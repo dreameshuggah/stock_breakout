@@ -23,19 +23,25 @@ def dailyClosePricesbyPeriod(ticker,str_period='1y'):
     return df
 
 
-def movingAveragesClosePrice(df):
+def simpleMovingAveragesClosePrice(df):
     df['sma10'] = df['Close'].rolling(window=10).mean()
     df['sma20'] = df['Close'].rolling(window=20).mean()
     df['sma50'] = df['Close'].rolling(window=50).mean()
-    df = df.sort_values(by=['Date'],ascending=[False])
-    return df
+    return df.sort_values(by=['Date'],ascending=[False])
 
+
+def exponentialMovingAveragesClosePrice(df):
+    df['EMA10']= df['Close'].ewm(span=10).mean()
+    df['EMA20']= df['Close'].ewm(span=20).mean()
+    df['EMA50']= df['Close'].ewm(span=50).mean()
+    return df.sort_values(by=['Date'],ascending=[False])
+    
 
 def findBreakOut(df):
     qry = """
         SELECT *
         ,CASE 
-        WHEN Close > sma10 AND Close > sma20 AND Close > sma50 THEN 'Yes'
+        WHEN Close > EMA10 AND Close > EMA20 AND Close > EMA50 THEN 'Yes'
         ELSE 'No' END AS 'break_out'
         FROM df
         """
@@ -70,7 +76,7 @@ ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)
 
 if len(ticker)==1:    
   df = dailyClosePricesbyPeriod(ticker)
-  df = movingAveragesClosePrice(df)
+  df = exponentialMovingAveragesClosePrice(df)
   df = findBreakOut(df)  
   
   closeTitle = ticker[0] + ' Daily Close Prices'
