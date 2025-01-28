@@ -79,7 +79,9 @@ if len(ticker)==1:
   df = findBreakOut(df,ticker)  
   
   closeTitle = ticker[0] + ' Daily Close Prices'
-  fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out",color_discrete_sequence = ['red','blue']
+  fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out"
+                                ,color_discrete_map = {'Yes':'green','No':'red'}
+                                #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
   st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
   
