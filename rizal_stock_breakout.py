@@ -37,14 +37,16 @@ def exponentialMovingAveragesClosePrice(df):
     return df.sort_values(by=['Date'],ascending=[False])
     
 
-def findBreakOut(df):
+def findBreakOut(df,ticker):
     qry = """
-        SELECT *
+        SELECT 
+        '{ticker}' AS ticker
+        ,*
         ,CASE 
         WHEN Close > EMA10 AND Close > EMA20 AND Close > EMA50 THEN 'Yes'
         ELSE 'No' END AS 'break_out'
         FROM df
-        """
+        """.format(ticker=ticker)
     return sqldf(qry,locals())
   
   
@@ -77,7 +79,7 @@ ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)
 if len(ticker)==1:    
   df = dailyClosePricesbyPeriod(ticker)
   df = exponentialMovingAveragesClosePrice(df)
-  df = findBreakOut(df)  
+  df = findBreakOut(df,ticker)  
   
   closeTitle = ticker[0] + ' Daily Close Prices'
   fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out", title = closeTitle )
