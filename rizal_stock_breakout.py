@@ -87,7 +87,9 @@ if len(ticker)==1:
   
   
   volumeTitle = ticker[0] + ' Volume'
-  fig_volume = px.bar(df, x="Date", y="Volume" ,color="break_out", title =  volumeTitle)
+  fig_volume = px.bar(df, x="Date", y="Volume" ,color="break_out"
+                      ,color_discrete_map = {'Yes':'green','No':'red'}
+                      , title =  volumeTitle)
   st.plotly_chart(fig_volume,key='bar1')
   
   st.dataframe(df)
