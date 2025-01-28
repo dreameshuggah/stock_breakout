@@ -74,7 +74,7 @@ for ticker_ in ticker_list:
     tmp_df = exponentialMovingAveragesClosePrice(tmp_df)
     tmp_df = findBreakOut(tmp_df,ticker_)
     if tmp_df[:1]['break_out'][0] == 'Yes':
-        breakOut_ls.append(ticker)
+        breakOut_ls.append(ticker_)
                        
                        
                        
