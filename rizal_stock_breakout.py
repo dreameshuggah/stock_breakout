@@ -66,6 +66,15 @@ ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB
                'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
                ,'STLD','APP','CRWD','RKLB','SOUN'
                        ])))
+
+
+breakOut_ls = []
+for ticker in ticker_list:
+    df = dailyClosePricesbyPeriod(ticker)
+    df = exponentialMovingAveragesClosePrice(df)
+    df = findBreakOut(df,ticker)
+    if df[:1]['break_out'][0] == 'Yes':
+        breakOut_ls.append(ticker)
                        
                        
                        
