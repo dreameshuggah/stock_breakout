@@ -73,8 +73,8 @@ ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB
                        
                        
 st.title('Stock Break Out')
-ticker = st.multiselect('Select a ticker:',ticker_list,'QCOM')#,disabled=True)      
-      
+#ticker = st.multiselect('Select a ticker:',ticker_list,'QCOM')#,disabled=True)      
+ticker = st.selectbox('Select a ticker:',ticker_list,'QCOM')     
 
 if len(ticker)==1:    
   df = dailyClosePricesbyPeriod(ticker)
