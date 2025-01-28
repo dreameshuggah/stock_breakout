@@ -80,7 +80,7 @@ if len(ticker)==1:
   
   closeTitle = ticker[0] + ' Daily Close Prices'
   fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out"
-                                ,color_discrete_map = {'Yes':'lightgreen','No':'pink'}
+                                ,color_discrete_map = {'Yes':'green','No':'grey'}
                                 #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
   st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
