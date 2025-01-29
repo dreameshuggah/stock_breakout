@@ -102,6 +102,7 @@ def recentFinance(ticker_ls,recent_ls):
           SELECT CAST(totalDebt AS FLOAT)/marketCap AS debt_ratio
           ,* 
           FROM df
+          ORDER BY revenueGrowth DESC
           """
     
     return sqldf(qry,locals())
