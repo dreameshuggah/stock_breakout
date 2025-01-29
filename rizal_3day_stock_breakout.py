@@ -143,6 +143,6 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sideb
 
 st.title('Last 3 Days Stock Break Out')
 st.dataframe(recentFinance(breakOut_ls,recent_ls))
-
+st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
 
 
