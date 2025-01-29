@@ -9,10 +9,10 @@ import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
 
-from IPython.display import display
-pd.options.display.max_columns = None
-pd.options.display.max_rows = 30
-pd.get_option("display.max_rows")
+#from IPython.display import display
+#pd.options.display.max_columns = None
+#pd.options.display.max_rows = 30
+#pd.get_option("display.max_rows")
 #pd.set_option('display.max_rows', 100)
 
 from pandasql import sqldf
