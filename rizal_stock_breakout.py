@@ -107,6 +107,7 @@ if len(ticker)==1:
     st.markdown("""Recent Financials""")
     recent_df = fetchRecent(ticker,recent_ls)
     qtr_df = financials_quarter(ticker)
+    dailyClosePrice_df  = closingPricesDaily(ticker)
     
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
             ,'gross_margin','npat_margin'
@@ -156,6 +157,10 @@ if len(ticker)==1:
     #col2_chart_b.write('\nCapital Expenditure')
     fig_capex = px.bar(qtr_df, x="date", y="Capital Expenditure", color="shortName",title='Capital Expenditure')
     col2_chart_b.plotly_chart(fig_capex, key="ticker6")#, on_select="rerun")
+
+    fig_line = px.line(dailyClosePrice_df, x="Date", y="Close", title='Daily Close Price')#, color="green")
+    st.plotly_chart(fig_line, key="ticker7")#, on_select="rerun")
+    st.dataframe(dailyClosePrice_df)
 
     st.write('Company Profile:')
     st.write(longBusinessSummary)
