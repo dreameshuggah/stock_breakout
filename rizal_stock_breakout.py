@@ -18,7 +18,7 @@ from ticker_funcs import *
 
 #====== FUNCS =====
 
-def dailyClosePricesbyPeriod(ticker,str_period='2y'):
+def dailyClosePricesbyPeriod(ticker,str_period='5y'):
     df = yf.download(ticker, period=str_period)
     df.reset_index(inplace=True)
     return df
