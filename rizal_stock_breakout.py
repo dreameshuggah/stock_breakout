@@ -74,7 +74,7 @@ ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB
                        
                        
                        
-st.title('Stock Break Out')
+st.title('Stock Price Break Outs & Financials:')
 st.markdown("""
 Break Out: Close Price above 10EMA, 20EMA, 50EMA
 """)
