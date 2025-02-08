@@ -114,6 +114,9 @@ if len(ticker)==1:
             ,'Cash And Cash Equivalents','Capital Expenditure'
            ]
 
+    longBusinessSummary = recent_df['longBusinessSummary'].values[0]
+
+    
     st.dataframe(recent_df)
     st.dataframe(qtr_df[cols],use_container_width=True)
 
@@ -154,5 +157,6 @@ if len(ticker)==1:
     fig_capex = px.bar(qtr_df, x="date", y="Capital Expenditure", color="shortName",title='Capital Expenditure')
     col2_chart_b.plotly_chart(fig_capex, key="ticker6")#, on_select="rerun")
 
-  
+    st.write('Company Profile:')
+    st.write(longBusinessSummary)
 
