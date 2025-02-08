@@ -161,7 +161,7 @@ def closePriceDailyByList(ticker_list):
 
 #========== QUARTERLY FINANCIALS ===========
 import streamlit as st
-@st.cache_data
+#@st.cache_data
 def financials_quarter(ticker_list):
     qtr_cols = list(set(['ticker','shortName','sector','industry','Total Assets','Total Liabilities Net Minority Interest'
             ,'Other Intangible Assets','Total Debt','Interest Income','Total Revenue'
@@ -374,7 +374,7 @@ def marketTrend(df):
 
 
 import streamlit as st
-@st.cache_data
+#@st.cache_data
 def fetchRecent(ticker_list,recent_ls):
     df = recentFinance(ticker_list,recent_ls)
     
@@ -411,7 +411,7 @@ def filterBuyDf(df,forwardPE_cutoff):
     return buy_df
 
 import streamlit as st
-@st.cache_data
+#@st.cache_data
 def filterNetIncomeRatio(buy_df,interest_income_ratio_df):
     buy_df = sqldf("""
                 SELECT *
