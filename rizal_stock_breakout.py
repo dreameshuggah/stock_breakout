@@ -11,6 +11,7 @@ import numpy as np
 from pandasql import sqldf
 import yfinance as yf
 import plotly.express as px
+from ticker_funcs import *
 
 
 # streamlit run rizal_stock_breakout.py
