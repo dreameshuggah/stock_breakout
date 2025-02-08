@@ -102,6 +102,8 @@ if len(ticker)==1:
   
     st.dataframe(df)
 
+    
+    st.markdown("##")
     st.markdown("""Recent Financials""")
     recent_df = fetchRecent(ticker,recent_ls)
     qtr_df = financials_quarter(ticker)
