@@ -107,7 +107,7 @@ if len(ticker)==1:
     st.markdown("""Recent Financials""")
     recent_df = fetchRecent(ticker,recent_ls)
     qtr_df = financials_quarter(ticker)
-    dailyClosePrice_df  = closingPricesDaily(ticker)
+    dailyClosePrice_df  = closingPricesDaily(ticker[0])
     
     cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
             ,'gross_margin','npat_margin'
