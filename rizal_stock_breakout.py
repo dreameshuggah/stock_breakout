@@ -60,11 +60,13 @@ def breakOutSignals(df):
     
     qry2="""
         SELECT *
+        
         ,CASE
         WHEN break_out = 'Yes' AND prev1 = 'Yes' AND prev2 = 'Yes' AND prev3 = 'No' THEN 'Buy'
         ELSE '' END AS Flag_Buy
+        
         ,CASE
-        WHEN prev1 = 'Yes' AND break_out = 'No' THEN 'Sell'
+        WHEN prev1 = 'Yes'AND prev2 = 'Yes' AND prev3 = 'Yes' AND break_out = 'No' THEN 'Sell'
         ELSE '' END AS Flag_Sell
         FROM df
         """
