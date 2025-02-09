@@ -47,6 +47,42 @@ def findBreakOut(df,ticker):
                 FROM df
                 """#.format(ticker=ticker)
     return sqldf(qry,locals())
+
+def breakOutSignals(df):
+    qry="""
+        SELECT *
+        ,LAG ( break_out,1,0) OVER ( ORDER BY Date ) AS prev1
+        ,LAG ( break_out,2,0) OVER ( ORDER BY Date ) AS prev2
+        ,LAG ( break_out,3,0) OVER ( ORDER BY Date ) AS prev3
+        FROM df
+        ORDER BY Date DESC
+        """
+    
+    qry2="""
+        SELECT *
+        ,CASE
+        WHEN break_out = 'Yes' AND prev1 = 'Yes' AND prev2 = 'Yes' AND prev3 = 'No' THEN 'Buy'
+        ELSE '' END AS Flag_Buy
+        ,CASE
+        WHEN prev1 = 'Yes' AND break_out = 'No' THEN 'Sell'
+        ELSE '' END AS Flag_Sell
+        FROM df
+        """
+    
+    qry3 =  """
+            SELECT *
+            ,CASE
+            WHEN Flag_Buy='Buy' THEN 'Yes Buy'
+            WHEN Flag_Sell = 'Sell' THEN 'Sell'
+            ELSE break_out END AS break_out_signal
+            FROM df
+            """
+    
+    
+    df = sqldf(qry,locals())
+    df = sqldf(qry2,locals())
+    df = sqldf(qry3,locals())
+    return df
   
   
   
