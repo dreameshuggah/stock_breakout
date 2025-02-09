@@ -39,6 +39,7 @@ def exponentialMovingAveragesClosePrice(df):
     
 
 def findBreakOut(df,ticker):
+    ticker = ticker[0]
     qry = """
                 SELECT 
                 '{ticker}' AS ticker
