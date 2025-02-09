@@ -121,10 +121,17 @@ if len(ticker)==1:
     df = dailyClosePricesbyPeriod(ticker)
     df = exponentialMovingAveragesClosePrice(df)
     df = findBreakOut(df,ticker)  
+    df = breakOutSignals(df)
+
+    breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50','break_out_signal']
   
     closeTitle = ticker[0] + ' Daily Close Prices'
-    fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out"
-                                ,color_discrete_map = {'Yes':'green','No':'grey'}
+    fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
+                                ,color_discrete_map = {'Yes':'green'
+                                                       ,'Yes Buy':'yellow'
+                                                       ,'No':'grey'
+                                                       ,'Sell': 'red'
+                                                      }
                                 #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
     st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
