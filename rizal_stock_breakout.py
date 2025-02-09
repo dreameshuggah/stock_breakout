@@ -177,11 +177,11 @@ if len(ticker)==1:
     col1_chart, col2_chart = st.columns(2)
     
     #col1_chart.write('\nTotal Revenue')
-    fig_revenue = px.bar(qtr_df, x="date", y="Total Revenue", color="blue", title = 'Total Revenue' )
+    fig_revenue = px.bar(qtr_df, x="date", y="Total Revenue", color="shortName", title = 'Total Revenue' )
     col1_chart.plotly_chart(fig_revenue, key="ticker1")#, on_select="rerun")
     
     #col2_chart.write('\nNet Income')
-    fig_netincome = px.bar(qtr_df, x="date", y="Net Income", color="yellow", title='Net Income')
+    fig_netincome = px.bar(qtr_df, x="date", y="Net Income", color="shortName", title='Net Income')
     col2_chart.plotly_chart(fig_netincome, key="ticker2")#, on_select="rerun")
 
     
