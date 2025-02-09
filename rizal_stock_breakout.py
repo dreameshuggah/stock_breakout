@@ -125,7 +125,7 @@ if len(ticker)==1:
     df = findBreakOut(df,ticker)  
     df = breakOutSignals(df)
 
-    breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50','break_out_signal']
+    
   
     closeTitle = ticker[0] + ' Daily Close Prices'
     fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
@@ -144,8 +144,9 @@ if len(ticker)==1:
                       ,color_discrete_map = {'Yes':'green','No':'grey'}
                       , title =  volumeTitle)
     st.plotly_chart(fig_volume,key='bar1')
-  
-    st.dataframe(df)
+
+    breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50','break_out_signal']
+    st.dataframe(df[breakout_cols])
 
     
     st.markdown("##")
