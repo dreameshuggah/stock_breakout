@@ -146,7 +146,8 @@ if len(ticker)==1:
     st.plotly_chart(fig_volume,key='bar1')
 
     breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50','break_out_signal']
-    st.dataframe(df[breakout_cols])
+    df = df[breakout_cols]
+    st.dataframe(df)
 
     
     st.markdown("##")
