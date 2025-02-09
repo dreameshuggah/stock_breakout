@@ -40,12 +40,14 @@ def exponentialMovingAveragesClosePrice(df):
 
 def findBreakOut(df,ticker):
     qry = """
-                SELECT *
+                SELECT 
+                '{ticker}' AS ticker
+                ,*
                 ,CASE 
                 WHEN Close > EMA10 AND Close > EMA20 AND Close > EMA50 THEN 'Yes'
                 ELSE 'No' END AS 'break_out'
                 FROM df
-                """#.format(ticker=ticker)
+                """.format(ticker=ticker)
     return sqldf(qry,locals())
 
 def breakOutSignals(df):
