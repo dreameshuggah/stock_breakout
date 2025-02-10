@@ -39,7 +39,7 @@ def exponentialMovingAveragesClosePrice(df):
     
 
 def findBreakOut(df,ticker):
-    ticker = ticker[0]
+    #ticker = ticker[0]
     qry = """
                 SELECT 
                 '{ticker}' AS ticker
@@ -119,8 +119,8 @@ st.title('Stock Break Outs & Financials')
 st.markdown("""
 Break Out: Close Price above 10EMA, 20EMA, 50EMA
 """)
-ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)      
-#ticker = st.selectbox('Select a ticker:',ticker_list)     
+#ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)      
+ticker = st.selectbox('Select a ticker:',ticker_list)     
 
 if len(ticker)==1:
     df = dailyClosePricesbyPeriod(ticker)
