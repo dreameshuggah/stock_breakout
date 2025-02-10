@@ -20,30 +20,6 @@ import yfinance as yf
 
 # FUNCS
 
-#========= break out stock ================
-def dailyClosePricesbyPeriod(ticker,str_period='1y'):
-    df = yf.download(ticker, period=str_period)
-    df.reset_index(inplace=True)
-    return df
-
-
-def movingAveragesClosePrice(df):
-    df['sma10'] = df['Close'].rolling(window=10).mean()
-    df['sma20'] = df['Close'].rolling(window=20).mean()
-    df['sma50'] = df['Close'].rolling(window=50).mean()
-    df = df.sort_values(by=['Date'],ascending=[False])
-    return df
-
-
-def findBreakOut(df):
-    qry = """
-        SELECT *
-        ,CASE 
-        WHEN Close > sma10 AND Close > sma20 AND Close > sma50 THEN 'Yes'
-        ELSE 'No' END AS 'break_out'
-        FROM df
-        """
-    return sqldf(qry,locals())
 
 #======== SHARE PRICE & COUNTS ================
 
