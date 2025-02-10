@@ -120,7 +120,7 @@ st.markdown("""
 Break Out: Close Price above 10EMA, 20EMA, 50EMA
 """)
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)      
-ticker = st.selectbox('Select a ticker:',ticker_list)     
+ticker = st.selectbox('Select a ticker:',ticker_list,index=None)     
 
 if len(ticker)==1:
     df = dailyClosePricesbyPeriod(ticker)
