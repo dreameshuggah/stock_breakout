@@ -382,7 +382,8 @@ def fetchRecent(ticker_list,recent_ls):
                     SELECT
                     ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
                     ,ROUND((targetMedianPrice/currentPrice)-1,4)*100 AS upside_Perc_targetMedianPrice
-                    ,totalDebt/marketCap AS debt_ratio
+                    ,CAST(totalDebt AS FLOAT)/marketCap AS debt_ratio
+                    --,totalDebt/marketCap AS debt_ratio
                     ,*
                     FROM df 
                     """
