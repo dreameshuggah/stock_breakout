@@ -19,8 +19,22 @@ from pandasql import sqldf
 import yfinance as yf
 import plotly.express as px
 import plotly.graph_objects as go
+#from ticker_funcs import *
 
 
+ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
+               'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
+               'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
+               'CPRT', 'CROX', 'DG', 'ELF', 'DAVA', 'ENPH', 'EXPE', 'XOM', 'FSLR',
+               'FTNT', 'INMD', 'INTC', 'ISRG', 'JNJ', 'LRCX', 'LULU', 'CART',
+               'MA', 'MRK', 'META', 'MU', 'MSFT', 'MRNA', 'MDLZ', 'NFLX',
+               'NKE', 'NVO', 'NVDA', 'OXY', 'OKTA', 'ORCL', 'OTIS', 'PANW',
+               'PYPL', 'PEP', 'PFE', 'PUBM', 'QCOM', 'QLYS', 'RVLV',
+               'NOW', 'SHOP', 'SWKS', 'SFM', 'TSM', 'TGLS', 'TSLA', 'TXRH', 'KO',
+               'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
+               'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
+               ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY'
+                       ])))
 
 
 
@@ -62,8 +76,8 @@ recent_ls = ['shortName'
             ,'trailingPE','forwardPE'    
             ,'currentPrice'
             #,'fiftyTwoWeekLow'
-            #,'fiftyTwoWeekHigh'
-            #,'targetMedianPrice'
+            ,'fiftyTwoWeekHigh'
+            ,'targetMedianPrice'
             #,'targetHighPrice'
             #,'fiftyDayAverage','twoHundredDayAverage'
             
@@ -105,8 +119,8 @@ def recentFinance(ticker_ls,recent_ls):
 
     qry = """
           SELECT 
-          --ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
-          CAST(totalDebt AS FLOAT)/marketCap AS debtRatio
+          ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
+          ,CAST(totalDebt AS FLOAT)/marketCap AS debtRatio
           ,* 
           FROM df
           ORDER BY revenueGrowth DESC
@@ -136,6 +150,5 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sideb
 
 st.title('Last 3 Days Stock Break Out')
 st.dataframe(recentFinance(breakOut_ls,recent_ls))
-st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
-
+#st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
 
