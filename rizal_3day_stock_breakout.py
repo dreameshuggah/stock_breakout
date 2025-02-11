@@ -118,8 +118,8 @@ def recentFinance(ticker_ls,recent_ls):
 
     qry = """
           SELECT 
-          ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
-          ,CAST(totalDebt AS FLOAT)/marketCap AS debtRatio
+          --ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
+          CAST(totalDebt AS FLOAT)/marketCap AS debtRatio
           ,* 
           FROM df
           ORDER BY revenueGrowth DESC
