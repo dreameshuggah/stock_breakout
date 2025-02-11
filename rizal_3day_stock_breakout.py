@@ -60,8 +60,8 @@ recent_ls = ['shortName'
             ,'currentPrice'
             #,'fiftyTwoWeekLow'
             ,'fiftyTwoWeekHigh'
-            ,'targetMedianPrice',
-            #'targetHighPrice'
+            ,'targetMedianPrice'
+            #,'targetHighPrice'
             #,'fiftyDayAverage','twoHundredDayAverage'
             
             ,'returnOnEquity','returnOnAssets','operatingMargins','ebitdaMargins'
