@@ -59,8 +59,9 @@ recent_ls = ['shortName'
             ,'trailingPE','forwardPE'    
             ,'currentPrice'
             #,'fiftyTwoWeekLow'
-             ,'fiftyTwoWeekHigh'
-            #,'targetMedianPrice','targetHighPrice'
+            ,'fiftyTwoWeekHigh'
+            ,'targetMedianPrice',
+            #'targetHighPrice'
             #,'fiftyDayAverage','twoHundredDayAverage'
             
             ,'returnOnEquity','returnOnAssets','operatingMargins','ebitdaMargins'
@@ -100,7 +101,10 @@ def recentFinance(ticker_ls,recent_ls):
     df.fillna(0)
 
     qry = """
-          SELECT CAST(totalDebt AS FLOAT)/marketCap AS debt_ratio
+          SELECT 
+          ROUND(  (currentPrice-fiftyTwoWeekHigh)/fiftyTwoWeekHigh  ,4)*100 AS perc_Chg_52WkHigh
+          --,ROUND((targetMedianPrice/currentPrice)-1,4)*100 AS upside_Perc_targetMedianPrice
+          ,CAST(totalDebt AS FLOAT)/marketCap AS debt_ratio
           ,* 
           FROM df
           ORDER BY revenueGrowth DESC
