@@ -136,6 +136,7 @@ for ticker in ticker_list:
     df = dailyClosePricesbyPeriod(ticker)
     df = exponentialMovingAveragesClosePrice(df)
     df = findBreakOut(df,ticker)
+    print(df.head())
     if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
         breakOut_ls.append(ticker)
 
