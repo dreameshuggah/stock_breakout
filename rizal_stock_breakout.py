@@ -128,17 +128,20 @@ revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
+st.markdown("#####")
+text_a, text_b = st.columns(2)
 # ================== RED FLAGS ! ==========================
 
+text_a.write('__Last Break Out Signal:__\n *',lastBreakOutSignal)
 
-st.markdown("#####")
-st.markdown("#### Red Flags (if exist):")
+
+text_b.markdown("Red Flags (if exist):")
 if forwardPE > trailingPE:
-    st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE)
+    text_b.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE)
 if revenueGrowth < 0 :
-    st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__')
+    text_b.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__')
 if operatingMargins < 0.1 :
-    st.write('* __operatingMargins:__',operatingMargins*100,'__%__',)
+    text_b.write('* __operatingMargins:__',operatingMargins*100,'__%__',)
 
 
 
@@ -147,7 +150,7 @@ if operatingMargins < 0.1 :
 
 st.markdown("#####")
 #================== Daily Close Price Chart ==================
-st.write('__Last Break Out Signal:__\n *',lastBreakOutSignal)
+
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
                         ,color_discrete_map = {'Yes':'green'
