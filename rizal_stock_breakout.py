@@ -114,6 +114,10 @@ df = exponentialMovingAveragesClosePrice(df)
 df = findBreakOut(df,ticker)  
 df = breakOutSignals(df)
 
+lastBreakOutSignal = df['break_out_signal'][-1]
+
+
+
 recent_df = fetchRecent(ticker,recent_ls)
 qtr_df = financials_quarter(ticker)
 
@@ -133,6 +137,8 @@ if revenueGrowth < 0 :
     st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__')
 if operatingMargins < 0.1 :
     st.write('* __operatingMargins:__',operatingMargins*100,'__%__',)
+
+st.write('lastBreakOutSignal:',lastBreakOutSignal)
 
 
 st.markdown("#####")
