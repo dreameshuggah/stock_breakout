@@ -112,6 +112,15 @@ Break Out: Close Price above 10EMA, 20EMA, 50EMA
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
 
 
+
+
+df = dailyClosePricesbyPeriod(ticker)
+df = exponentialMovingAveragesClosePrice(df)
+df = findBreakOut(df,ticker)  
+df = breakOutSignals(df)
+
+
+
 # ================== RED FLAGS ! ==========================
 st.markdown("## Red Flags (if exist):")
 if forwardPE > trailingPE:
@@ -120,15 +129,6 @@ if revenueGrowth < 0 :
     st.write('- revenueGrowth: ',revenueGrowth*100,'%')
 if operatingMargins < 0.1 :
     st.write('- operatingMargins:',operatingMargins*100,'%')
-
-
-
-
-df = dailyClosePricesbyPeriod(ticker)
-df = exponentialMovingAveragesClosePrice(df)
-df = findBreakOut(df,ticker)  
-df = breakOutSignals(df)
-
 
 
 
