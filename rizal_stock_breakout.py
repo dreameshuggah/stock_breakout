@@ -160,11 +160,15 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 forwardPE = round(recent_df['forwardPE'][0],2)
 trailingPE = round(recent_df['trailingPE'][0],2)
 
+revenueGrowth = round(recent_df['revenueGrowth'][0],2)
 
-# ======= Red flags! ===========
+
+# ================== Red flags! ==========================
+st.markdown("## Red Flags:")
 if forwardPE > trailingPE:
-    st.markdown("## Red Flags:")
-    st.write('forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE, ' -> RED FLAG!')
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth)
 
 # ======================== TAB 1 BAR CHARTS ===================  
 st.markdown("##")
