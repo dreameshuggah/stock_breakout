@@ -159,17 +159,15 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 
 forwardPE = round(recent_df['forwardPE'][0],2)
 trailingPE = round(recent_df['trailingPE'][0],2)
-
-revenueGrowth = round(recent_df['revenueGrowth'][0],2)
-
-operatingMargins = round(recent_df['operatingMargins'][0],2)
+revenueGrowth = round(recent_df['revenueGrowth'][0],4)
+operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 # ================== RED FLAGS ! ==========================
 st.markdown("## Red Flags (if exist):")
 if forwardPE > trailingPE:
     st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
 if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth)
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
 if operatingMargins < 0.1 :
     st.write('- operatingMargins:',operatingMargins*100,'%')
 
