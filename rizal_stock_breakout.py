@@ -132,7 +132,7 @@ if forwardPE > trailingPE:
 if revenueGrowth < 0 :
     st.write('- revenueGrowth: ',revenueGrowth*100,'%')
 if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
+    st.write('- operatingMargins:',operatingMargins*100,'% (Weak Margins)',)
 
 
 st.markdown("#####")
