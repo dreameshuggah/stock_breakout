@@ -105,6 +105,15 @@ st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 st.markdown("##")
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
 
+# ================== RED FLAGS ! ==========================
+#st.markdown("##")
+st.markdown("### Red Flags (if exist):")
+if forwardPE > trailingPE:
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
+if operatingMargins < 0.1 :
+    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 #====== DOWNLOAD TICKER DATA =========
@@ -126,7 +135,7 @@ operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
 
-
+#================== Daily Close Price Chart ==================
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
                         ,color_discrete_map = {'Yes':'green'
@@ -138,7 +147,7 @@ fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
                         , title = closeTitle )
 st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
 
-
+#================ Daily Volume Bar Chart ================= 
 volumeTitle = ticker[0] + ' Volume'
 fig_volume = px.bar(df, x="Date", y="Volume" ,color="break_out"
               ,color_discrete_map = {'Yes':'green','No':'grey'}
@@ -167,15 +176,6 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 
 
 
-# ================== RED FLAGS ! ==========================
-st.markdown("##")
-st.markdown("### Red Flags (if exist):")
-if forwardPE > trailingPE:
-    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
-if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
-if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 
