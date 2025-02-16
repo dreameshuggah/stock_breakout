@@ -102,7 +102,7 @@ st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
-st.markdown("##")
+#st.markdown("##")
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
 
 
