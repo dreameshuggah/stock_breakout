@@ -150,10 +150,6 @@ breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50'
 st.dataframe(df[breakout_cols])
 
 
-st.markdown("##")
-st.markdown("""## Recent Financials""")
-
-
 cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
     ,'gross_margin','npat_margin'
     ,'Total Revenue','Net Income','Accounts Receivable','Free Cash Flow','EBITDA'
@@ -162,11 +158,8 @@ cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income
 
 
 
-
-
-
-
-
+st.markdown("##")
+st.markdown("""## Recent Financials""")
 
 #========= RECENT & QTR FINANCE TABLES ===================
 st.dataframe(recent_df)
