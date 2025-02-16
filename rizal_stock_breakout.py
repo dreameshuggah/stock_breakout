@@ -105,15 +105,7 @@ st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 st.markdown("##")
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
 
-# ================== RED FLAGS ! ==========================
-#st.markdown("##")
-st.markdown("### Red Flags (if exist):")
-if forwardPE > trailingPE:
-    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
-if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
-if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
+
 
 
 #====== DOWNLOAD TICKER DATA =========
@@ -132,7 +124,15 @@ revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
-
+# ================== RED FLAGS ! ==========================
+#st.markdown("##")
+st.markdown("### Red Flags (if exist):")
+if forwardPE > trailingPE:
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
+if operatingMargins < 0.1 :
+    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 #================== Daily Close Price Chart ==================
