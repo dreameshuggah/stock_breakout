@@ -125,7 +125,7 @@ operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
 # ================== RED FLAGS ! ==========================
-st.markdown("####")
+st.markdown("#####")
 st.markdown("#### Red Flags (if exist):")
 if forwardPE > trailingPE:
     st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
@@ -135,6 +135,7 @@ if operatingMargins < 0.1 :
     st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
+st.markdown("#####")
 #================== Daily Close Price Chart ==================
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
