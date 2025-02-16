@@ -143,7 +143,8 @@ if revenueGrowth < 0 :
 if operatingMargins < 0.1 :
     st.write('* __operatingMargins:__',operatingMargins*100,'__%__',)
 
-
+else:
+    st.write('None')
 
 
 
