@@ -143,15 +143,10 @@ if revenueGrowth < 0 :
 if operatingMargins < 0.1 :
     st.write('* __operatingMargins:__',operatingMargins*100,'__%__',)
 
-else:
-    st.write('None')
-
-
 
 
 st.markdown("#####")
 #================== Daily Close Price Chart ==================
-
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
                         ,color_discrete_map = {'Yes':'green'
