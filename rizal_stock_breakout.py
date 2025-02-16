@@ -105,14 +105,31 @@ st.title('Stock Break Outs & Financials')
 st.markdown("""
 Break Out: Close Price above 10EMA, 20EMA, 50EMA
 """)
+
+
+
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)      
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
+
+
+# ================== RED FLAGS ! ==========================
+st.markdown("## Red Flags (if exist):")
+if forwardPE > trailingPE:
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
+if operatingMargins < 0.1 :
+    st.write('- operatingMargins:',operatingMargins*100,'%')
+
+
 
 
 df = dailyClosePricesbyPeriod(ticker)
 df = exponentialMovingAveragesClosePrice(df)
 df = findBreakOut(df,ticker)  
 df = breakOutSignals(df)
+
+
 
 
 
@@ -153,6 +170,11 @@ cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income
 
 longBusinessSummary = recent_df['longBusinessSummary'].values[0]
 
+forwardPE = round(recent_df['forwardPE'][0],2)
+trailingPE = round(recent_df['trailingPE'][0],2)
+revenueGrowth = round(recent_df['revenueGrowth'][0],4)
+operatingMargins = round(recent_df['operatingMargins'][0],4)
+
 
 
 #========= RECENT & QTR FINANCE TABLES ===================
@@ -162,19 +184,6 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 
 
 
-# ================== RED FLAGS ! ==========================
-forwardPE = round(recent_df['forwardPE'][0],2)
-trailingPE = round(recent_df['trailingPE'][0],2)
-revenueGrowth = round(recent_df['revenueGrowth'][0],4)
-operatingMargins = round(recent_df['operatingMargins'][0],4)
-
-st.markdown("## Red Flags (if exist):")
-if forwardPE > trailingPE:
-    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
-if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
-if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 
