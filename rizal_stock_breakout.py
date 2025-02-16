@@ -113,22 +113,16 @@ ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)
 
 
 
-
+#====== DOWNLOAD TICKER DATA =========
 df = dailyClosePricesbyPeriod(ticker)
 df = exponentialMovingAveragesClosePrice(df)
 df = findBreakOut(df,ticker)  
 df = breakOutSignals(df)
 
+recent_df = fetchRecent(ticker,recent_ls)
+qtr_df = financials_quarter(ticker)
 
 
-# ================== RED FLAGS ! ==========================
-st.markdown("## Red Flags (if exist):")
-if forwardPE > trailingPE:
-    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
-if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
-if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 
@@ -158,8 +152,6 @@ st.dataframe(df[breakout_cols])
 
 st.markdown("##")
 st.markdown("""Recent Financials""")
-recent_df = fetchRecent(ticker,recent_ls)
-qtr_df = financials_quarter(ticker)
 
 
 cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
@@ -174,6 +166,18 @@ forwardPE = round(recent_df['forwardPE'][0],2)
 trailingPE = round(recent_df['trailingPE'][0],2)
 revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
+
+
+
+# ================== RED FLAGS ! ==========================
+st.markdown("## Red Flags (if exist):")
+if forwardPE > trailingPE:
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
+if operatingMargins < 0.1 :
+    st.write('- operatingMargins:',operatingMargins*100,'%')
+
 
 
 
