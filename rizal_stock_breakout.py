@@ -168,6 +168,7 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 
 
 # ================== RED FLAGS ! ==========================
+st.markdown("##")
 st.markdown("### Red Flags (if exist):")
 if forwardPE > trailingPE:
     st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
