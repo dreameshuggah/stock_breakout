@@ -151,7 +151,7 @@ st.dataframe(df[breakout_cols])
 
 
 st.markdown("##")
-st.markdown("""Recent Financials""")
+st.markdown("""## Recent Financials""")
 
 
 cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income_ratio','debt_to_ebitda'
