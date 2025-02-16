@@ -122,6 +122,12 @@ df = breakOutSignals(df)
 recent_df = fetchRecent(ticker,recent_ls)
 qtr_df = financials_quarter(ticker)
 
+longBusinessSummary = recent_df['longBusinessSummary'].values[0]
+forwardPE = round(recent_df['forwardPE'][0],2)
+trailingPE = round(recent_df['trailingPE'][0],2)
+revenueGrowth = round(recent_df['revenueGrowth'][0],4)
+operatingMargins = round(recent_df['operatingMargins'][0],4)
+
 
 
 
@@ -160,23 +166,10 @@ cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income
     ,'Cash And Cash Equivalents','Capital Expenditure'
    ]
 
-longBusinessSummary = recent_df['longBusinessSummary'].values[0]
-
-forwardPE = round(recent_df['forwardPE'][0],2)
-trailingPE = round(recent_df['trailingPE'][0],2)
-revenueGrowth = round(recent_df['revenueGrowth'][0],4)
-operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
 
-# ================== RED FLAGS ! ==========================
-st.markdown("## Red Flags (if exist):")
-if forwardPE > trailingPE:
-    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
-if revenueGrowth < 0 :
-    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
-if operatingMargins < 0.1 :
-    st.write('- operatingMargins:',operatingMargins*100,'%')
+
 
 
 
@@ -187,6 +180,14 @@ st.dataframe(qtr_df[cols],use_container_width=True)
 
 
 
+# ================== RED FLAGS ! ==========================
+st.markdown("### Red Flags (if exist):")
+if forwardPE > trailingPE:
+    st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
+if revenueGrowth < 0 :
+    st.write('- revenueGrowth: ',revenueGrowth*100,'%')
+if operatingMargins < 0.1 :
+    st.write('- operatingMargins:',operatingMargins*100,'%')
 
 
 
