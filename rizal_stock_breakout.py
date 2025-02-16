@@ -132,7 +132,7 @@ st.markdown("#####")
 text_a, text_b = st.columns(2)
 # ================== RED FLAGS ! ==========================
 
-text_a.write('__Last Break Out Signal:__\n *',lastBreakOutSignal)
+#text_a.write('__Last Break Out Signal:__\n *',lastBreakOutSignal)
 
 
 text_b.markdown("Red Flags (if exist):")
