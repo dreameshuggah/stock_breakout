@@ -161,7 +161,7 @@ forwardPE = recent_df['forwardPE'][0]
 trailingPE = recent_df['trailingPE'][0]
 
 if forwardPE > trailingPE:
-    st.write('forwardPE:', forwardPE, '> trailingPE:', trailingPE = 'Very Bad!')
+    st.write('forwardPE:', forwardPE, '> trailingPE:', trailingPE, '= Very Bad!')
 
 # ======================== TAB 1 BAR CHARTS ===================  
 st.markdown("##")
