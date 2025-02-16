@@ -163,8 +163,8 @@ trailingPE = round(recent_df['trailingPE'][0],2)
 revenueGrowth = round(recent_df['revenueGrowth'][0],2)
 
 
-# ================== Red flags! ==========================
-st.markdown("## Red Flags:")
+# ================== RED FLAGS ! ==========================
+st.markdown("## Red Flags (if exist):")
 if forwardPE > trailingPE:
     st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
 if revenueGrowth < 0 :
