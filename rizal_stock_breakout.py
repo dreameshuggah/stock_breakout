@@ -132,7 +132,7 @@ operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 # ================== RED FLAGS ! ==========================
 st.markdown("#####")
-st.write('__Break Out Signal(latest):__\n *',lastBreakOutSignal)
+st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
 st.write("__Red Flags (if exist):__")
