@@ -154,15 +154,20 @@ cols = ['date','ticker','shortName','net_interest_income_ratio','interest_income
 longBusinessSummary = recent_df['longBusinessSummary'].values[0]
 
 
+
+#========= RECENT & QTR FINANCE TABLES ===================
 st.dataframe(recent_df)
 st.dataframe(qtr_df[cols],use_container_width=True)
 
+
+
+
+# ================== RED FLAGS ! ==========================
 forwardPE = round(recent_df['forwardPE'][0],2)
 trailingPE = round(recent_df['trailingPE'][0],2)
 revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 
-# ================== RED FLAGS ! ==========================
 st.markdown("## Red Flags (if exist):")
 if forwardPE > trailingPE:
     st.write('- forwardPE: ', forwardPE, ' > trailingPE: ', trailingPE)
