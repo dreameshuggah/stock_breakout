@@ -128,14 +128,14 @@ revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
-st.markdown("#####")
+
 
 # ================== RED FLAGS ! ==========================
-
+st.markdown("#####")
 st.write('__Last Break Out Signal:__\n *',lastBreakOutSignal)
 
-
-st.markdown("Red Flags (if exist):")
+st.markdown("#####")
+st.write("__Red Flags (if exist):__")
 if forwardPE > trailingPE:
     st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE)
 if revenueGrowth < 0 :
