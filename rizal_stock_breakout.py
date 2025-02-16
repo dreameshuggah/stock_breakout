@@ -158,11 +158,11 @@ st.dataframe(recent_df)
 st.dataframe(qtr_df[cols],use_container_width=True)
 
 forwardPE = round(recent_df['forwardPE'][0],2)
-trailingPE = round(recent_df['trailingPE'][0])
+trailingPE = round(recent_df['trailingPE'][0],2)
 
 if forwardPE > trailingPE:
     st.markdown("##")
-    st.write('forwardPE:', forwardPE, '> trailingPE:', trailingPE, '-> Red Flag!')
+    st.write('forwardPE:', forwardPE, '> trailingPE:', trailingPE, '-> RED FLAG!')
 
 # ======================== TAB 1 BAR CHARTS ===================  
 st.markdown("##")
