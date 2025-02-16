@@ -129,6 +129,8 @@ operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 
 # ================== RED FLAGS ! ==========================
+st.write('Last Break Out Signal:',lastBreakOutSignal)
+
 st.markdown("#####")
 st.markdown("#### Red Flags (if exist):")
 if forwardPE > trailingPE:
@@ -140,7 +142,7 @@ if operatingMargins < 0.1 :
 
 
 
-st.write('lastBreakOutSignal:',lastBreakOutSignal)
+
 
 
 st.markdown("#####")
