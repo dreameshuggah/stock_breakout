@@ -135,7 +135,7 @@ st.markdown("#####")
 st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
-st.write("__red[Red Flags] (if exist):__")
+st.write("__Red Flags (if exist):__")
 if forwardPE > trailingPE:
     st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE)
 if revenueGrowth < 0 :
