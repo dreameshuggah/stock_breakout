@@ -299,11 +299,11 @@ def latestRatios(df):
 
 recent_ls = ['shortName'
             ,'industry'
-            ,'trailingPegRatio','currentRatio'
             ,'trailingPE','forwardPE'    
             ,'currentPrice','fiftyTwoWeekLow','fiftyTwoWeekHigh'
             ,'targetMedianPrice','targetHighPrice'
             #,'fiftyDayAverage','twoHundredDayAverage'
+            ,'trailingPegRatio','currentRatio'
             ,'shortRatio'
             ,'returnOnEquity','returnOnAssets','operatingMargins','ebitdaMargins'
             ,'revenueGrowth','earningsGrowth'
