@@ -148,21 +148,28 @@ if operatingMargins < 0.1 :
 st.markdown("#####")
 #================== Daily Close Price Chart ==================
 closeTitle = ticker[0] + ' Daily Close Prices'
-fig_close_prices = px.scatter(df, x="Date", y="Close", color="break_out_signal"
+fig_close_prices = px.scatter(df, x="Date", y="Close"
+                                , color="break_out_signal"
+                                ,color_discrete_map = {'Yes':'green'
+                                                       ,'Yes Buy':'yellow'
+                                                       ,'No':'grey'
+                                                       ,'Sell': 'red'
+                                                      }
+                                #,color_discrete_sequence = ['red','blue']
+                                , title = closeTitle )
+st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
+
+#================ Daily Volume Bar Chart ================= 
+volumeTitle = ticker[0] + ' Volume'
+fig_volume = px.bar(df, x="Date", y="Volume" 
+                        #,color="break_out",color_discrete_map = {'Yes':'green','No':'grey'}
+                        , color="break_out_signal"
                         ,color_discrete_map = {'Yes':'green'
                                                ,'Yes Buy':'yellow'
                                                ,'No':'grey'
                                                ,'Sell': 'red'
                                               }
-                        #,color_discrete_sequence = ['red','blue']
-                        , title = closeTitle )
-st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
-
-#================ Daily Volume Bar Chart ================= 
-volumeTitle = ticker[0] + ' Volume'
-fig_volume = px.bar(df, x="Date", y="Volume" ,color="break_out"
-              ,color_discrete_map = {'Yes':'green','No':'grey'}
-              , title =  volumeTitle)
+                       ,title =  volumeTitle)
 st.plotly_chart(fig_volume,key='bar1')
 
 
