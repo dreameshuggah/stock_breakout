@@ -39,6 +39,7 @@ def closingPricesDaily(ticker):
     df = yf.download(ticker, period="5y")
     if len(df)>0:
         df.reset_index(inplace=True)
+        df.columns = ['Date','Close','High','Low','Open','Volume']
         df['Ticker']= ticker
         df['Date'] = pd.to_datetime(df['Date']).dt.date
         df = df[['Ticker','Date','Close']].sort_values(by=['Date'],ascending=False)
