@@ -51,6 +51,7 @@ def closingPricesDaily(ticker):
 def closingPrices(ticker):
     df = yf.download(ticker, period="5y")
     df.reset_index(inplace=True)
+    df.columns = ['Date','Close','High','Low','Open','Volume']
     #print(df.columns)
     #print('daily data shape: ',df.shape)
     df = df[['Date','Close']]
