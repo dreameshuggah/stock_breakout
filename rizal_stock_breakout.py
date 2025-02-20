@@ -22,7 +22,7 @@ def dailyClosePricesbyPeriod(ticker,str_period='1y'):
     df = yf.download(ticker, period=str_period)
     df.reset_index(inplace=True)
     df.columns = ['Date','Close','High','Low','Open','Volume']
-    df['ticker']=ticker
+    #df['ticker']=ticker
     return df
 
 
