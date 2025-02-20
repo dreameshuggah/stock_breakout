@@ -18,8 +18,11 @@ from ticker_funcs import *
 #====== FUNCS =====
 
 def dailyClosePricesbyPeriod(ticker,str_period='5y'):
+    #['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y','5y', 'ytd', 'max']
     df = yf.download(ticker, period=str_period)
     df.reset_index(inplace=True)
+    df.columns = ['Date','Close','High','Low','Open','Volume']
+    df['ticker']=ticker
     return df
 
 
