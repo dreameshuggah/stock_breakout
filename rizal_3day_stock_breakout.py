@@ -27,12 +27,22 @@ import plotly.graph_objects as go
 
 
 # ============ FUNCS ============
+def SP500tickers():
+    df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
+    ticker_list = sorted(df['Symbol'].to_list())
+    return ticker_list
+
+
+
 def dailyClosePricesbyPeriod(ticker,str_period='1y'):
     #['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y','5y', 'ytd', 'max']
     df = yf.download(ticker, period=str_period)
-    df.reset_index(inplace=True)
-    df.columns = ['Date','Close','High','Low','Open','Volume']
-    df['ticker']=ticker
+    if len(df)>0:
+        df.reset_index(inplace=True)
+        df.columns = ['Date','Close','High','Low','Open','Volume']
+        df['ticker']=ticker
+    else:
+        df = pd.DataFrame()       
     return df
 
 
@@ -121,32 +131,19 @@ def recentFinance(ticker_ls,recent_ls):
 
 
 
-ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
-               'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
-               'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
-               'CPRT', 'CROX', 'DG', 'ELF', 'DAVA', 'ENPH', 'EXPE', 'XOM', 'FSLR',
-               'FTNT', 'INMD', 'INTC', 'ISRG', 'JNJ'
-                               #, 'LRCX'
-                , 'LULU', 'CART',
-               'MA', 'MRK', 'META', 'MU', 'MSFT', 'MRNA', 'MDLZ', 'NFLX',
-               'NKE', 'NVO', 'NVDA', 'OXY', 'OKTA', 'ORCL', 'OTIS', 'PANW',
-               'PYPL', 'PEP', 'PFE', 'PUBM', 'QCOM', 'QLYS', 'RVLV',
-               'NOW', 'SHOP', 'SWKS', 'SFM', 'TSM', 'TGLS', 'TSLA', 'TXRH', 'KO',
-               'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
-               'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
-               ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY','CSCO'
-                       ])))
 
+
+ticker_list = SP500tickers()
 breakOut_ls = []
+
 for ticker in ticker_list:
     df = dailyClosePricesbyPeriod(ticker)
-    df = exponentialMovingAveragesClosePrice(df)
-    df = findBreakOut(df,ticker)
-
     if len(df)>0:
-      if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
-        breakOut_ls.append(ticker)
-
+        df = exponentialMovingAveragesClosePrice(df)
+        df = findBreakOut(df,ticker)
+        
+        if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
+            breakOut_ls.append(ticker)
 
 
         
