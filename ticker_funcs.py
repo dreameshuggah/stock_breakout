@@ -16,7 +16,7 @@ import numpy as np
 from pandasql import sqldf
 import yfinance as yf
 
-
+"""
 ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
                'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
                'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
@@ -30,7 +30,18 @@ ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB
                'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
                ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY','CSCO','HIMS'
                        ])))
+"""
 # FUNCS
+import streamlit as st
+@st.cache_data
+def SP500tickers():
+    df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
+    ticker_list = sorted(df['Symbol'].to_list())
+    return ticker_list
+
+
+
+
 
 
 #======== SHARE PRICE & COUNTS ================
