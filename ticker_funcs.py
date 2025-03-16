@@ -16,8 +16,8 @@ import numpy as np
 from pandasql import sqldf
 import yfinance as yf
 
-"""
-ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
+
+extra_ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
                'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
                'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
                'CPRT', 'CROX', 'DG', 'ELF', 'DAVA', 'ENPH', 'EXPE', 'XOM', 'FSLR',
@@ -30,14 +30,15 @@ ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB
                'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
                ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY','CSCO','HIMS'
                        ])))
-"""
+
 # FUNCS
 import streamlit as st
 @st.cache_data
-def SP500tickers():
+def SP500tickers(extra_ticker_list):
     df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
-    ticker_list = sorted(df['Symbol'].to_list())
-    return ticker_list
+    ticker_list = df['Symbol'].to_list()
+    ticker_list = list(set(ticker_list + extra_ticker_list))
+    return sorted(ticker_list)
 
 
 
