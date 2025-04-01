@@ -91,9 +91,34 @@ recent_ls = ['shortName'
             ]
 
 
+
+
+
+
+
+def screenBreakOuts():
+    ticker_list = SP500tickers()
+    breakOut_ls = []
+    
+    for ticker in ticker_list:
+        df = dailyClosePricesbyPeriod(ticker)
+        if len(df)>0:
+            df = exponentialMovingAveragesClosePrice(df)
+            df = findBreakOut(df,ticker)
+            
+            if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
+                breakOut_ls.append(ticker)
+        return breakOut_ls
+
+
+
+
+
 def Merge(dict1, dict2):
     res = {**dict1, **dict2}
     return res
+
+
 
 
 def recentTickerFinance(ticker,recent_ls):
@@ -109,8 +134,7 @@ def recentTickerFinance(ticker,recent_ls):
 
 
 
-
-#@st.cache_data
+@st.cache_data
 def recentFinance(ticker_ls,recent_ls):
     df = pd.DataFrame()
     for ticker in ticker_ls:
@@ -147,17 +171,7 @@ def filterDf(df,forwardPE_cutoff):
 
 
 
-ticker_list = SP500tickers()
-breakOut_ls = []
 
-for ticker in ticker_list:
-    df = dailyClosePricesbyPeriod(ticker)
-    if len(df)>0:
-        df = exponentialMovingAveragesClosePrice(df)
-        df = findBreakOut(df,ticker)
-        
-        if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
-            breakOut_ls.append(ticker)
 
 
 
@@ -169,7 +183,7 @@ for ticker in ticker_list:
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 # download finance data
-fin_df = recentFinance(breakOut_ls,recent_ls)
+fin_df = recentFinance(screenBreakOuts(),recent_ls)
 
 st.title('Last 3 Days Stock Break Out')
 st.dataframe(fin_df)
