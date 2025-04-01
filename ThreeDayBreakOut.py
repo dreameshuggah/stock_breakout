@@ -120,8 +120,6 @@ def recentTickerFinance(ticker,recent_ls):
     return pd.DataFrame.from_dict(fin_dict)
 
 
-import streamlit as st
-@st.cache_data
 def recentFinance(ticker_ls,recent_ls):
     df = pd.DataFrame()
     for ticker in ticker_ls:
