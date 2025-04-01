@@ -108,7 +108,8 @@ def screenBreakOuts():
             
             if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
                 breakOut_ls.append(ticker)
-        return breakOut_ls
+    
+    return breakOut_ls
 
 
 
@@ -183,8 +184,7 @@ def filterDf(df,forwardPE_cutoff):
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 # download finance data
-breakout_ls = screenBreakOuts()
-fin_df = recentFinance(breakout_ls,recent_ls)
+fin_df = recentFinance(screenBreakOuts(),recent_ls)
 
 st.title('Last 3 Days Stock Break Out')
 st.dataframe(fin_df)
