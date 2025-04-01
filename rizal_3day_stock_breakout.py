@@ -51,7 +51,7 @@ markdown("""
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-fig_scatter = px.scatter(filterDf(fin_df,forwardPE_cutoff)
+fig_scatter = px.scatter(filterDf(fin_df)
                          , x="returnOnEquity" 
                          , y= "operatingMargins"
                          , color= 'industry'
@@ -59,7 +59,7 @@ fig_scatter = px.scatter(filterDf(fin_df,forwardPE_cutoff)
                          #, symbol = 'industry'
                          , hover_data=['ticker','shortName','revenueGrowth','forwardPE']
                          , title = 'Return On Equity vs Operating Margins: Size by Forward PE'
-                         #, height = '700'
+                         , height = '700'
                         )
 st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
 
