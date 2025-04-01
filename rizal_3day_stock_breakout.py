@@ -37,21 +37,17 @@ st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-col1, col2 = st.columns([2,1])
+#col1, col2 = st.columns([2,1])
 
-col1.markdown(""" 
+markdown(""" 
     Filter:
     - total debt / market cap ratio < 0.33
     - operating margins > 0.1
     - revenueGrowth > 0
-    - forward PE 
+    - forward PE < 40
     """)
 
 
-
-forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
-#revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
-#marketCap_cutoff = col2.slider("marketCap (in millions) cut-off > ",100,500,1000)
 
 st.write('\n\n\n')
 st.write('\n\n\n')
