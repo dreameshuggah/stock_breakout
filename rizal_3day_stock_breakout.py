@@ -196,7 +196,7 @@ st.write('\n\n\n')
 fig_scatter = px.scatter(filterDf(fin_df,forwardPE_cutoff)
                          , x="returnOnEquity" 
                          , y= "operatingMargins"
-                         , color= 'market_trend'
+                         , color= 'industry'
                          , size= 'forwardPE'
                          , symbol = 'industry'
                          , hover_data=['ticker','shortName','revenueGrowth','forwardPE']
