@@ -131,21 +131,6 @@ def recentFinance(ticker_ls,recent_ls):
 
 
 
-
-
-ticker_list = SP500tickers()
-breakOut_ls = []
-
-for ticker in ticker_list:
-    df = dailyClosePricesbyPeriod(ticker)
-    if len(df)>0:
-        df = exponentialMovingAveragesClosePrice(df)
-        df = findBreakOut(df,ticker)
-        
-        if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
-            breakOut_ls.append(ticker)
-
-
 def filterDf(df,forwardPE_cutoff):
     qry="""
         SELECT * 
@@ -161,15 +146,33 @@ def filterDf(df,forwardPE_cutoff):
     return sqldf(qry,locals())
 
 
-# download finance data
-fin_df = recentFinance(breakOut_ls,recent_ls)
+ticker_list = SP500tickers()
+breakOut_ls = []
+
+for ticker in ticker_list:
+    df = dailyClosePricesbyPeriod(ticker)
+    if len(df)>0:
+        df = exponentialMovingAveragesClosePrice(df)
+        df = findBreakOut(df,ticker)
+        
+        if df['break_out'][0]=='Yes' and df['break_out'][1]=='Yes' and df['break_out'][2]=='Yes' :
+            breakOut_ls.append(ticker)
+
+
+
+
+
+
 
 
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
+# download finance data
+fin_df = recentFinance(breakOut_ls,recent_ls)
 
-
-
+st.title('Last 3 Days Stock Break Out')
+st.dataframe(fin_df)
+st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
 
 
 col1.markdown(""" 
@@ -180,19 +183,13 @@ col1.markdown("""
     - forward PE 
     """)
 
+
+
 col1, col2, col3 = st.columns([3,1])
 
 forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
 revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
 #marketCap_cutoff = col2.slider("marketCap (in millions) cut-off > ",100,500,1000)
-
-
-
-
-
-st.title('Last 3 Days Stock Break Out')
-st.dataframe(fin_df)
-st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
 
 st.write('\n\n\n')
 st.write('\n\n\n')
