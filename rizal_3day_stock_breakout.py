@@ -39,7 +39,7 @@ st.write('\n\n\n')
 st.write('\n\n\n')
 #col1, col2 = st.columns([2,1])
 
-markdown(""" 
+st.markdown(""" 
     Filter:
     - total debt / market cap ratio < 0.33
     - operating margins > 0.1
