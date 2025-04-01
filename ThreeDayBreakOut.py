@@ -142,7 +142,7 @@ def recentFinance(ticker_ls,recent_ls):
 
 
 
-def filterDf(df,forwardPE_cutoff):
+def filterDf(df):
     qry="""
         SELECT * 
         FROM df
@@ -150,8 +150,8 @@ def filterDf(df,forwardPE_cutoff):
         WHERE debtRatio < 0.33
         AND operatingMargins >= 0.1
         AND revenueGrowth > 0
-        AND forwardPE < {forwardPE_cutoff}
-        """.format(forwardPE_cutoff=forwardPE_cutoff)
+        AND forwardPE < 50
+        """
     return sqldf(qry,locals())
 
 
