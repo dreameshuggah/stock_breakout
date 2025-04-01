@@ -110,7 +110,7 @@ def recentTickerFinance(ticker,recent_ls):
 
 
 
-
+@st.cache_data
 def recentFinance(ticker_ls,recent_ls):
     df = pd.DataFrame()
     for ticker in ticker_ls:
@@ -146,14 +146,61 @@ for ticker in ticker_list:
             breakOut_ls.append(ticker)
 
 
+def filterDf(df,forwardPE_cutoff):
+    qry="""
+        SELECT * 
+        FROM df
+
+        WHERE debtRatio < 0.33
+        AND operatingMargins >= 0.1
+        AND revenueGrowth > 0
+        AND forwardPE < {forwardPE_cutoff}
+        --AND marketCap >= {marketCap_cutoff}
+        """.format(forwardPE_cutoff=forwardPE_cutoff)#,marketCap_cutoff=marketCap_cutoff)
+
+    return sqldf(qry,locals())
+
         
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
+
+
+fin_df = recentFinance(breakOut_ls,recent_ls)
+
+find_df1 = filterDf(df,forwardPE_cutoff)
+
+col1.markdown(""" 
+    Filter:
+    - total debt / market cap ratio < 0.33
+    - operating margins > 0.1
+    - revenueGrowth > 0
+    - forward PE 
+    """)
+
+col1, col2, col3 = st.columns([3,1])
+
+forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
+revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
+#marketCap_cutoff = col2.slider("marketCap (in millions) cut-off > ",100,500,1000)
 
 
 
 
 
 st.title('Last 3 Days Stock Break Out')
-st.dataframe(recentFinance(breakOut_ls,recent_ls))
+st.dataframe(fin_df)
 st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
+
+st.write('\n\n\n')
+st.write('\n\n\n')
+fig_scatter = px.scatter(fin_df1
+                         , x="returnOnEquity" 
+                         , y= "operatingMargins"
+                         , color= 'market_trend'
+                         , size= 'forwardPE'
+                         , symbol = 'industry'
+                         , hover_data=['ticker','shortName','revenueGrowth','forwardPE']
+                         , title = 'Return On Equity vs Operating Margins: Size by Forward PE'
+                         #, height = '700'
+                        )
+st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
 
