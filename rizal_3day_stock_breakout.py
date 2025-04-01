@@ -175,6 +175,12 @@ st.dataframe(fin_df)
 st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-breakout.streamlit.app/")
 
 
+
+
+
+
+col1, col2, col3 = st.columns([3,1])
+
 col1.markdown(""" 
     Filter:
     - total debt / market cap ratio < 0.33
@@ -183,17 +189,13 @@ col1.markdown("""
     - forward PE 
     """)
 
-
-
-col1, col2, col3 = st.columns([3,1])
-
 forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
-revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
+#revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
 #marketCap_cutoff = col2.slider("marketCap (in millions) cut-off > ",100,500,1000)
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-fig_scatter = px.scatter(filterDf(df,forwardPE_cutoff)
+fig_scatter = px.scatter(filterDf(fin_df,forwardPE_cutoff)
                          , x="returnOnEquity" 
                          , y= "operatingMargins"
                          , color= 'market_trend'
