@@ -110,7 +110,7 @@ def recentTickerFinance(ticker,recent_ls):
 
 
 
-@st.cache_data
+#@st.cache_data
 def recentFinance(ticker_ls,recent_ls):
     df = pd.DataFrame()
     for ticker in ticker_ls:
@@ -142,6 +142,9 @@ def filterDf(df,forwardPE_cutoff):
         AND forwardPE < {forwardPE_cutoff}
         """.format(forwardPE_cutoff=forwardPE_cutoff)
     return sqldf(qry,locals())
+
+
+
 
 
 ticker_list = SP500tickers()
@@ -187,6 +190,9 @@ col1.markdown("""
     - forward PE 
     """)
 
+
+st.write('\n\n\n')
+st.write('\n\n\n')
 forwardPE_cutoff = col2.slider("Forward PE cut-off < ", 10, 40, 25)
 #revenueGrowth_cutoff = col3.slider("revenueGrowth cut-off > ",0,0.05,0.1)
 #marketCap_cutoff = col2.slider("marketCap (in millions) cut-off > ",100,500,1000)
