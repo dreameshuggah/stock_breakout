@@ -179,7 +179,7 @@ st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-
 
 
 
-col1, col2, col3 = st.columns([3,1])
+col1, col2 = st.columns([2,1])
 
 col1.markdown(""" 
     Filter:
