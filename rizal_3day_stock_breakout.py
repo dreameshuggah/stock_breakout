@@ -140,9 +140,7 @@ def filterDf(df,forwardPE_cutoff):
         AND operatingMargins >= 0.1
         AND revenueGrowth > 0
         AND forwardPE < {forwardPE_cutoff}
-        --AND marketCap >= {marketCap_cutoff}
-        """.format(forwardPE_cutoff=forwardPE_cutoff)#,marketCap_cutoff=marketCap_cutoff)
-
+        """.format(forwardPE_cutoff=forwardPE_cutoff)
     return sqldf(qry,locals())
 
 
