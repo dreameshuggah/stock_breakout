@@ -160,13 +160,17 @@ def filterDf(df,forwardPE_cutoff):
 
     return sqldf(qry,locals())
 
-        
+
+# download finance data
+fin_df = recentFinance(breakOut_ls,recent_ls)
+
+
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 
-fin_df = recentFinance(breakOut_ls,recent_ls)
 
-find_df1 = filterDf(df,forwardPE_cutoff)
+
+
 
 col1.markdown(""" 
     Filter:
@@ -192,7 +196,7 @@ st.link_button("Go Stock Break Out Page to view charts..", "https://rizal-stock-
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-fig_scatter = px.scatter(fin_df1
+fig_scatter = px.scatter(filterDf(df,forwardPE_cutoff)
                          , x="returnOnEquity" 
                          , y= "operatingMargins"
                          , color= 'market_trend'
