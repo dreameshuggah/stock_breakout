@@ -183,7 +183,8 @@ def filterDf(df,forwardPE_cutoff):
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 # download finance data
-fin_df = recentFinance(screenBreakOuts(),recent_ls)
+breakout_ls = screenBreakOuts()
+fin_df = recentFinance(breakout_ls,recent_ls)
 
 st.title('Last 3 Days Stock Break Out')
 st.dataframe(fin_df)
