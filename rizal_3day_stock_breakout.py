@@ -44,7 +44,7 @@ st.markdown("""
     - total debt / market cap ratio < 0.33
     - operating margins > 0.1
     - revenueGrowth > 0
-    - forward PE < 40
+    - forward PE < 30
     """)
 
 
