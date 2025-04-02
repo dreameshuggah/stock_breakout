@@ -136,25 +136,25 @@ operatingMargins = round(recent_df['operatingMargins'][0],4)
 
 # ================== RED FLAGS ! ==========================
 st.markdown("#####")
-col1, col2, col3 = st.columns(3)
-col1.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
+#col1, col2, col3 = st.columns(3)
+st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 #st.markdown("#####")
-col2.write("__:small_red_triangle_down: Red Flags  (if exist):__")
+st.write("__:small_red_triangle_down: Red Flags  (if exist):__")
 if forwardPE > trailingPE and trailingPE!=0:
-    col2.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
+    st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
 if revenueGrowth < 0 :
-    col2.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',' :x:')
+    st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',' :x:')
 if operatingMargins < 0.1 :
-    col2.write('* __operatingMargins:__',operatingMargins*100,'__%__',' :x:')
+    st.write('* __operatingMargins:__',operatingMargins*100,'__%__',' :x:')
 
 
 #st.markdown("#####")
-col3.write("__:large_green_circle: Green Flags (if exist):__")
+st.write("__:large_green_circle: Green Flags (if exist):__")
 if revenueGrowth >= 0.1 :
-    col3.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',':heavy_check_mark:')
+    st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',':heavy_check_mark:')
 if operatingMargins >= 0.2 :
-    col3.write('* __operatingMargins:__',operatingMargins*100,'__%__',':heavy_check_mark:')
+    st.write('* __operatingMargins:__',operatingMargins*100,'__%__',':heavy_check_mark:')
 
 
 
