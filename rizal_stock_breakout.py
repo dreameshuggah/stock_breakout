@@ -155,7 +155,7 @@ st.write("__:large_green_circle: Green Flags (if exist):__")
 if revenueGrowth >= 0.1 :
     st.write('* __revenueGrowth:__ ',round(revenueGrowth*100,1),'__%__',':heavy_check_mark:')
 if returnOnEquity >= 0.2 :
-    st.write('* __revenueGrowth:__ ',round(returnOnEquity*100,1),'__%__',':heavy_check_mark:')
+    st.write('* returnOnEquity:__ ',round(returnOnEquity*100,1),'__%__',':heavy_check_mark:')
 if operatingMargins >= 0.2 :
     st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',':heavy_check_mark:')
 
