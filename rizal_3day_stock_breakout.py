@@ -66,7 +66,7 @@ st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-fig_scatter = px.scatter(fin_df1
+fig_scatter1 = px.scatter(fin_df1
                          , x= 'forwardPE'
                          , y= 'revenueGrowth'
                          , color= 'industry'
@@ -76,5 +76,5 @@ fig_scatter = px.scatter(fin_df1
                          , title = 'Return On Equity vs revenueGrowth: Size by Forward PE'
                          #, height = '700'
                         )
-st.plotly_chart(fig_scatter, key="ticker1")#, on_select="rerun")
+st.plotly_chart(fig_scatter1, key="ticker1")#, on_select="rerun")
 
