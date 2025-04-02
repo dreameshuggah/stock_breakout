@@ -67,7 +67,7 @@ st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
 st.write('\n\n\n')
 st.write('\n\n\n')
 fig_scatter1 = px.scatter(fin_df1
-                         , x= 'forwardPE'
+                         , x= 'returnOnEquity'
                          , y= 'revenueGrowth'
                          , color= 'industry'
                          , size= 'forwardPE'
