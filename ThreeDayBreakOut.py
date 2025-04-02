@@ -147,7 +147,7 @@ def filterDf(df):
 
         WHERE debtRatio < 0.33
         AND operatingMargins >= 0.1
-        AND revenueGrowth >= 0.1
+        AND revenueGrowth >=  0.1
         AND forwardPE < 30
         """
     return sqldf(qry,locals())
