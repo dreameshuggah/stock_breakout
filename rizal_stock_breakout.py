@@ -146,6 +146,8 @@ if forwardPE > trailingPE and trailingPE!=0:
     st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
 if revenueGrowth < 0 :
     st.write('* __revenueGrowth:__ ',round(revenueGrowth*100,1),'__%__',' :x:')
+if returnOnEquity < 0.1 :
+    st.write('* __returnOnEquity:__ ',round(returnOnEquity*100,1),'__%__',':x:')
 if operatingMargins < 0.1 :
     st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',' :x:')
 
