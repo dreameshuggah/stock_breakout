@@ -130,6 +130,7 @@ forwardPE = round(recent_df['forwardPE'][0],2)
 trailingPE = round(recent_df['trailingPE'][0],2)
 revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
+returnOnEquity = round(recent_df['returnOnEquity'][0],4)
 
 
 
@@ -153,6 +154,8 @@ st.markdown("#####")
 st.write("__:large_green_circle: Green Flags (if exist):__")
 if revenueGrowth >= 0.1 :
     st.write('* __revenueGrowth:__ ',round(revenueGrowth*100,1),'__%__',':heavy_check_mark:')
+if returnOnEquity >= 0.2 :
+    st.write('* __revenueGrowth:__ ',round(returnOnEquity*100,1),'__%__',':heavy_check_mark:')
 if operatingMargins >= 0.2 :
     st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',':heavy_check_mark:')
 
