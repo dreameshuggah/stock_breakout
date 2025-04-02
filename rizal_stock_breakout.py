@@ -140,7 +140,7 @@ st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
 st.write("__:small_red_triangle_down: Red Flags  (if exist):__")
-if forwardPE > trailingPE:
+if forwardPE > trailingPE and trailingPE!=0:
     st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
 if revenueGrowth < 0 :
     st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',' :x:')
