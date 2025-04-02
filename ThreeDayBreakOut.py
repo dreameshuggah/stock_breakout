@@ -149,6 +149,7 @@ def filterDf(df):
         AND operatingMargins >= 0.1
         AND revenueGrowth >=  0.1
         AND forwardPE < 30
+        AND returnOnEquity >= 0.2
         """
     return sqldf(qry,locals())
 
