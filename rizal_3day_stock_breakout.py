@@ -45,6 +45,7 @@ st.markdown("""
     - operating margins > 0.1
     - revenueGrowth >= 0.1
     - forward PE < 30
+    - returnOnEquity >= 0.2
     """)
 
 fin_df1 = filterDf(fin_df)
