@@ -149,7 +149,7 @@ if operatingMargins < 0.1 :
 
 
 st.markdown("#####")
-st.write("__Green Flags (if exist):__")
+st.write("__:large_green_circle: Green Flags (if exist):__")
 if revenueGrowth >= 0.1 :
     st.write('* __revenueGrowth:__ ',revenueGrowth*100,'__%__',':heavy_check_mark:')
 if operatingMargins >= 0.2 :
