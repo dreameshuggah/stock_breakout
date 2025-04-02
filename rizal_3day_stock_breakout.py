@@ -43,16 +43,16 @@ st.markdown("""
     Filter:
     - total debt / market cap ratio < 0.33
     - operating margins > 0.1
-    - revenueGrowth > 0
+    - revenueGrowth > 0.05
     - forward PE < 30
     """)
 
-
+fin_df1 = filterDf(fin_df)
 
 st.write('\n\n\n')
 st.write('\n\n\n')
-fig_scatter = px.scatter(filterDf(fin_df)
-                         , x="returnOnEquity" 
+fig_scatter = px.scatter(fin_df1
+                         , x='returnOnEquity'
                          , y= "operatingMargins"
                          , color= 'industry'
                          , size= 'forwardPE'
@@ -62,4 +62,19 @@ fig_scatter = px.scatter(filterDf(fin_df)
                          #, height = '700'
                         )
 st.plotly_chart(fig_scatter, key="ticker0")#, on_select="rerun")
+
+
+st.write('\n\n\n')
+st.write('\n\n\n')
+fig_scatter = px.scatter(fin_df1
+                         , x= 'forwardPE'
+                         , y= 'revenueGrowth'
+                         , color= 'industry'
+                         , size= 'forwardPE'
+                         #, symbol = 'operatingMargins'
+                         , hover_data=['ticker','shortName','revenueGrowth','forwardPE']
+                         , title = 'Return On Equity vs revenueGrowth: Size by Forward PE'
+                         #, height = '700'
+                        )
+st.plotly_chart(fig_scatter, key="ticker1")#, on_select="rerun")
 
