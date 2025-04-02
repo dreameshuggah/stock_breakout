@@ -43,7 +43,7 @@ st.markdown("""
     Filter:
     - total debt / market cap ratio < 0.33
     - operating margins > 0.1
-    - revenueGrowth >= 0.05
+    - revenueGrowth >= 0.1
     - forward PE < 30
     """)
 
