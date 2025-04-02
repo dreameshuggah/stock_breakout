@@ -141,6 +141,7 @@ st.markdown("#####")
 st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
+st.markdown("#####")
 st.write("__:large_red_square: Red Flags  (if exist):__")
 if forwardPE > trailingPE and trailingPE!=0:
     st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
@@ -152,6 +153,7 @@ if operatingMargins < 0.1 :
     st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',' :x:')
 
 
+st.markdown("#####")
 st.markdown("#####")
 st.write("__:large_green_circle: Green Flags (if exist):__")
 if revenueGrowth >= 0.1 :
