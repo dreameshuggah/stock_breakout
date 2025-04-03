@@ -131,6 +131,7 @@ trailingPE = round(recent_df['trailingPE'][0],2)
 revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 returnOnEquity = round(recent_df['returnOnEquity'][0],4)
+debt_ratio = round(recent_df['debt_ratio'][0],4)
 
 
 
@@ -144,12 +145,14 @@ st.markdown("#####")
 st.markdown("#####")
 st.write("__:large_red_square: Red Flags  (if exist):__")
 #if forwardPE > trailingPE and trailingPE!=0: st.write('* __forwardPE:__ ', forwardPE, ' > trailingPE: ', trailingPE,' :x:')
+if debt_ratio >=0.33 0 :
+    st.write('* __debt_ratio:__  ',round(debt_ratio*100,1),'__%__',' :x:')
 if revenueGrowth < 0 :
-    st.write('* __revenueGrowth:__ ',round(revenueGrowth*100,1),'__%__',' :x:')
+    st.write('* __revenueGrowth:__  ',round(revenueGrowth*100,1),'__%__',' :x:')
 if returnOnEquity < 0.1 :
-    st.write('* __returnOnEquity:__ ',round(returnOnEquity*100,1),'__%__',':x:')
+    st.write('* __returnOnEquity:__  ',round(returnOnEquity*100,1),'__%__',':x:')
 if operatingMargins < 0.1 :
-    st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',' :x:')
+    st.write('* __operatingMargins:__  ',round(operatingMargins*100,1),'__%__',' :x:')
 
 
 st.markdown("#####")
