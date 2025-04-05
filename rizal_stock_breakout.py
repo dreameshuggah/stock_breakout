@@ -143,8 +143,8 @@ industry = recent_df['industry'][0]
 
 # ================== RED FLAGS ! ==========================
 st.markdown("#####")
-st.write(f'__{shortName}__(',industry,')' )
-st.write('__MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
+st.write(f'__{shortName}__  (',industry,')' )
+st.write('* __MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
 
 
 st.markdown("#####")
