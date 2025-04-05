@@ -103,18 +103,14 @@ st.title('Stock Break Outs & Financials')
 st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 
 
-st.markdown("#####")
-st.markdown("#####")
-
-
-
+#st.markdown("#####")
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
 #st.markdown("##")
 ticker_list = SP500tickers(extra_ticker_list)
    
 
-
+st.markdown("#####")
 ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)  
 
 
