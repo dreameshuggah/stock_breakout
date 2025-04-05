@@ -105,7 +105,9 @@ st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 
 st.markdown("#####")
 st.markdown("#####")
-col1, col2, col3 = st.columns(3)
+
+
+
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
 #st.markdown("##")
@@ -144,13 +146,13 @@ industry = recent_df['industry'][0]
 
 
 
-
+col1, col2, col3 = st.columns(3)
 # ================== RED FLAGS ! ==========================
 #st.markdown("#####")
 with col1:
     st.write(f'__{shortName}__  (',industry,')' )
     st.write('* __MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
-    st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
+    st.write('*__Break Out Signal (latest) :__',lastBreakOutSignal)
 
 #st.markdown("#####")
 #st.markdown("#####")
