@@ -132,16 +132,19 @@ revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 returnOnEquity = round(recent_df['returnOnEquity'][0],4)
 debt_ratio = round(recent_df['debt_ratio'][0],4)
+
+marketCap = recent_df['marketCap'][0]
 shortName = recent_df['shortName'][0]
+industry = recent_df['industry'][0]
 
 
-st.write(shortName)
 
 
 
 # ================== RED FLAGS ! ==========================
 st.markdown("#####")
-#col1, col2, col3 = st.columns(3)
+st.write(shortName,': ',industry)
+st.write('marketCap',round(marketCap/1000,2),'billion' )
 st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
