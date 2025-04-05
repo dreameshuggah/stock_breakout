@@ -103,13 +103,15 @@ st.title('Stock Break Outs & Financials')
 st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 
 
+col1, col2, col3 = st.columns(3)
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
 #st.markdown("##")
 ticker_list = SP500tickers(extra_ticker_list)
-ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)     
+   
 
-
+with col1:
+    ticker = [st.selectbox('Select a ticker:',ticker_list)]#,index=None)  
 
 
 #====== DOWNLOAD TICKER DATA =========
@@ -142,13 +144,15 @@ industry = recent_df['industry'][0]
 
 
 # ================== RED FLAGS ! ==========================
-st.markdown("#####")
-st.write(f'__{shortName}__  (',industry,')' )
-st.write('* __MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
+#st.markdown("#####")
+with col2:
+    st.write(f'__{shortName}__  (',industry,')' )
+    st.write('* __MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
 
 
-st.markdown("#####")
-st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
+#st.markdown("#####")
+with col3:
+    st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
 st.markdown("#####")
