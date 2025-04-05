@@ -145,14 +145,15 @@ industry = recent_df['industry'][0]
 
 
 
-
+st.markdown("#####")
+st.markdown("#####")
 col1, col2, col3 = st.columns(3)
 # ================== RED FLAGS ! ==========================
 #st.markdown("#####")
 with col1:
     st.write(f'__{shortName}__  (',industry,')' )
     st.write('* __MarketCap:__',round(marketCap/1000000000,2),'__billion__' )
-    st.write('*__Break Out Signal (latest) :__',lastBreakOutSignal)
+    st.write('* __Break Out Signal:__',lastBreakOutSignal)
 
 #st.markdown("#####")
 #st.markdown("#####")
