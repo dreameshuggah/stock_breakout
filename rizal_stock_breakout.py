@@ -144,7 +144,10 @@ industry = recent_df['industry'][0]
 # ================== RED FLAGS ! ==========================
 st.markdown("#####")
 st.write(shortName,': ',industry)
-st.write('marketCap',round(marketCap/1000,2),'billion' )
+st.write('marketCap',round(marketCap/1000000000,2),'billion' )
+
+
+st.markdown("#####")
 st.write('__Break Out Signal (latest) :__\n *',lastBreakOutSignal)
 
 st.markdown("#####")
