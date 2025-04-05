@@ -143,7 +143,7 @@ industry = recent_df['industry'][0]
 
 st.markdown("#####")
 st.markdown("#####")
-col1, col2, col3 = st.columns(3, border=True)
+col1, col2, col3 = st.columns(3)#, border=True)
 # ================== RED FLAGS ! ==========================
 #st.markdown("#####")
 with col1:
