@@ -103,6 +103,8 @@ st.title('Stock Break Outs & Financials')
 st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
 
 
+st.markdown("#####")
+st.markdown("#####")
 col1, col2, col3 = st.columns(3)
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
