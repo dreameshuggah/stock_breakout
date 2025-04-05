@@ -171,7 +171,7 @@ with col2:
 #st.markdown("#####")
 #st.markdown("#####")
 with col3:
-st.write("__:large_green_circle:  Green Flags (if exist):__")
+    st.write("__:large_green_circle:  Green Flags (if exist):__")
     if revenueGrowth >= 0.1 :
         st.write('* __revenueGrowth:__ ',round(revenueGrowth*100,1),'__%__',':heavy_check_mark:')
     if returnOnEquity >= 0.2 :
