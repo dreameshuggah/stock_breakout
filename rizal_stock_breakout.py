@@ -147,8 +147,8 @@ col1, col2, col3 = st.columns(3)#, border=True)
 # ================== RED FLAGS ! ==========================
 #st.markdown("#####")
 with col1:
-    st.write(f'__:classical_building:  Company:__ ')
-    st.write(f'* __{shortName}__')
+    st.write(f'__:classical_building:  Company:__  {shortName} ')
+    #st.write(f'* __{shortName}__')
     st.write('* __Industry:__  ',industry)
     st.write('* __MarketCap:__  ',round(marketCap/1000000000,2),'__billion__' )
     st.write('* __ForwardPE:__  ',forwardPE)
