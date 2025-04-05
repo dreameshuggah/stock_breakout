@@ -154,7 +154,7 @@ with col1:
     st.write(f'__:classical_building: {shortName}__ ')
     st.write('* __Industry:__  ',industry)
     st.write('* __MarketCap:__  ',round(marketCap/1000000000,2),'__billion__' )
-    st.write('* __Break Out Signal:__  ',lastBreakOutSignal)
+    st.write(f'* __Break Out Signal:__  {lastBreakOutSignal}',)
 
 #st.markdown("#####")
 #st.markdown("#####")
