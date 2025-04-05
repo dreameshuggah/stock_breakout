@@ -132,7 +132,10 @@ revenueGrowth = round(recent_df['revenueGrowth'][0],4)
 operatingMargins = round(recent_df['operatingMargins'][0],4)
 returnOnEquity = round(recent_df['returnOnEquity'][0],4)
 debt_ratio = round(recent_df['debt_ratio'][0],4)
+shortName = recent_df['shortName'][0]
 
+
+st.write(shortName)
 
 
 
