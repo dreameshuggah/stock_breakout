@@ -101,10 +101,8 @@ st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sideb
                        
 st.title('Stock Break Outs & Financials')
 st.markdown("""#### Break Out: Close Price above 10EMA, 20EMA, 50EMA """)
-#st.markdown("#####")
+st.markdown("#####")
 st.link_button("Go to Last 3 Day BreakOut Stock Screener", "https://rizal-3day-stock-breakout.streamlit.app/")
-
-
 
 
 #ticker = st.multiselect('Select a ticker:',ticker_list,['QCOM'])#,disabled=True)  
