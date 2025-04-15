@@ -194,7 +194,7 @@ st.markdown("#####")
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close"
                                 , color="break_out_signal"
-                                , symbol = 'break_down_150ema'
+                                #, symbol = 'break_down_150ema'
                                 , color_discrete_map = {'Yes':'green'
                                                        ,'Yes Buy':'yellow'
                                                        ,'No':'grey'
