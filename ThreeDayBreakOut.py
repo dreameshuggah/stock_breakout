@@ -13,11 +13,37 @@ import yfinance as yf
 
 
 # ============ FUNCS ============
+extra_ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD', 'ABNB', 'AMR', 'GOOG',
+               'AMZN', 'AXP', 'AAPL', 'ANET', 'ARM', 'ASML', 'ACLS', 'BCC',
+               'BKNG', 'BOOT', 'AVGO', 'CP', 'CF', 'CVX', 'CTAS', 'CL',
+               'CPRT', 'CROX', 'DG', 'ELF', 'DAVA', 'ENPH', 'EXPE', 'XOM', 'FSLR',
+               'FTNT', 'INMD', 'INTC', 'ISRG', 'JNJ', 'LRCX', 'LULU', 'CART',
+               'MA', 'MRK', 'META', 'MU', 'MSFT', 'MRNA', 'MDLZ', 'NFLX',
+               'NKE', 'NVO', 'NVDA', 'OXY', 'OKTA', 'ORCL', 'OTIS', 'PANW',
+               'PYPL', 'PEP', 'PFE', 'PUBM', 'QCOM', 'QLYS', 'RVLV',
+               'NOW', 'SHOP', 'SWKS', 'SFM', 'TSM', 'TGLS', 'TSLA', 'TXRH', 'KO',
+               'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
+               'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
+               ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY','CSCO','HIMS'
+               ,'CELH'
+                       ])))
+
+# FUNCS
+#import streamlit as st
+#@st.cache_data
+def SP500tickers(extra_ticker_list):
+    df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
+    ticker_list = df['Symbol'].to_list()
+    ticker_list = list(set(ticker_list + extra_ticker_list))
+    return sorted(ticker_list)
+
+
+""""
 def SP500tickers():
     df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
     ticker_list = sorted(df['Symbol'].to_list())
     return ticker_list
-
+"""
 
 
 def dailyClosePricesbyPeriod(ticker,str_period='1y'):
@@ -82,8 +108,8 @@ recent_ls = ['shortName'
 
 
 
-def screenBreakOuts():
-    ticker_list = SP500tickers()
+def screenBreakOuts(extra_ticker_list):
+    ticker_list = SP500tickers(extra_ticker_list)
     breakOut_ls = []
     
     for ticker in ticker_list:
