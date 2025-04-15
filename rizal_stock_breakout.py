@@ -191,7 +191,7 @@ fig_close_prices = px.scatter(df, x="Date", y="Close"
                                 ,color_discrete_map = {'Yes':'green'
                                                        ,'Yes Buy':'yellow'
                                                        ,'No':'grey'
-                                                       ,'Sell': 'red'
+                                                       ,'Sell': 'pink'
                                                       }
                                 #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
@@ -205,7 +205,7 @@ fig_volume = px.bar(df, x="Date", y="Volume"
                         ,color_discrete_map = {'Yes':'green'
                                                ,'Yes Buy':'yellow'
                                                ,'No':'grey'
-                                               ,'Sell': 'red'
+                                               ,'Sell': 'pink'
                                               }
                        ,title =  volumeTitle)
 st.plotly_chart(fig_volume,key='bar1')
