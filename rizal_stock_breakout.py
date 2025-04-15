@@ -190,6 +190,8 @@ with col3:
         st.write('* __returnOnEquity:__ ',round(returnOnEquity*100,1),'__%__',':heavy_check_mark:')
     if operatingMargins >= 0.2 :
         st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',':heavy_check_mark:')
+    if break_down_150ema == 'No':
+        st.write('* __break down below 150EMA:  No__ :heavy_check_mark:')
     
 
 
