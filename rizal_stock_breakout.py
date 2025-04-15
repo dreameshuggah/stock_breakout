@@ -193,10 +193,10 @@ with col3:
     if operatingMargins >= 0.2 :
         st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',':heavy_check_mark:')
     if break_down_150ema == 'No':
-        st.write('* __Trend: Above 150 EMA!__ :heavy_check_mark:')
+        st.write('* __Trend:  Above 150 EMA!__ :heavy_check_mark:')
 
     if lastBreakOutSignal in ['Yes','Yes Buy']:
-        st.write('* __Trend: Above 50,20,10 EMA!__ :heavy_check_mark:')
+        st.write('* __Trend:  Above 50,20,10 EMA!__ :heavy_check_mark:')
     
 
 
