@@ -178,6 +178,8 @@ with col2:
         st.write('* __operatingMargins:__  ',round(operatingMargins*100,1),'__%__',' :x:')
     if break_down_150ema == 'Yes':
         st.write('* __Below 150EMA!__ :x:')
+    if break_down_150ema == 'Yes' and lastBreakOutSignal in ['No','Sell']:
+        st.write('* __Below 150,50,20,10 EMA!__ :x:')
 
 
 #st.markdown("#####")
