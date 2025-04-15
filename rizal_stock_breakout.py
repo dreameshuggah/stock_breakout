@@ -11,6 +11,7 @@ import numpy as np
 from pandasql import sqldf
 import yfinance as yf
 import plotly.express as px
+import plotly.graph_objects as go
 from ticker_funcs import *
 
 # streamlit run rizal_stock_breakout.py
@@ -190,7 +191,7 @@ with col3:
 
 
 st.markdown("#####")
-#================== Daily Close Price Chart ==================
+#================== Daily Close Price Scatter Plot ==================
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close"
                                 , color="break_out_signal"
@@ -220,7 +221,8 @@ st.plotly_chart(fig_volume,key='bar1')
 
 breakout_cols = ['ticker','Date','Open','Close','Volume'
                  ,'EMA10','EMA20','EMA50','EMA150'
-                 ,'break_out','break_out_signal','break_down_150ema']
+                 #,'break_out'
+                 ,'break_out_signal','break_down_150ema']
 st.dataframe(df[breakout_cols])
 
 
