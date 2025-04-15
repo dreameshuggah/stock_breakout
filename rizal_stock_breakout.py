@@ -193,6 +193,7 @@ with col3:
 st.markdown("#####")
 #================== Daily Close Price Scatter Plot ==================
 closeTitle = ticker[0] + ' Daily Close Prices'
+
 fig_close_prices = px.scatter(df, x="Date", y="Close"
                                 , color="break_out_signal"
                                 #, symbol = 'break_down_150ema'
@@ -203,6 +204,11 @@ fig_close_prices = px.scatter(df, x="Date", y="Close"
                                                       }
                                 #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
+
+
+
+
+#fig_close_prices = go.Figure(fig_close_prices_scatter.data+fig_150ema_line.data)
 st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
 
 #================ Daily Volume Bar Chart ================= 
