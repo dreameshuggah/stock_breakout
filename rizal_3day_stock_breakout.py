@@ -25,7 +25,7 @@ from ThreeDayBreakOut import *
 st.set_page_config(page_title=None, page_icon=None, layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 # download finance data
-fin_df = recentFinance(screenBreakOuts(),recent_ls)
+fin_df = recentFinance(screenBreakOuts(extra_ticker_list),recent_ls)
 
 st.title('Last 3 Days Stock Break Out Screener')
 st.dataframe(fin_df)
