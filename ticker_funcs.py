@@ -29,6 +29,7 @@ extra_ticker_list = sorted(list(set(['ADSK', 'CRM', 'MMM', 'ADBE', 'AMD', 'APD',
                'EL', 'HSY', 'HD', 'KHC', 'PG', 'TTD', 'ULTA', 'VEEV', 'VICI', 'V',
                'SMCI', 'GFS', 'MRVL','DELL','ANF','CAT','KLAC','AMAT','ADM'
                ,'STLD','APP','CRWD','RKLB','SOUN','ABBV','APG','EDR','MNDY','CSCO','HIMS'
+               ,'CELH'
                        ])))
 
 # FUNCS
