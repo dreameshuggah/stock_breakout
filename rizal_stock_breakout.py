@@ -218,7 +218,8 @@ fig_volume = px.bar(df, x="Date", y="Volume"
 st.plotly_chart(fig_volume,key='bar1')
 
 
-breakout_cols = ['ticker','Date','Open','Close','Volume','EMA10','EMA20','EMA50'
+breakout_cols = ['ticker','Date','Open','Close','Volume'
+                 ,'EMA10','EMA20','EMA50','EMA150'
                  ,'break_out','break_out_signal','break_down_150ema']
 st.dataframe(df[breakout_cols])
 
