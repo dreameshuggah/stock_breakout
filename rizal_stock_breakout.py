@@ -194,10 +194,11 @@ st.markdown("#####")
 closeTitle = ticker[0] + ' Daily Close Prices'
 fig_close_prices = px.scatter(df, x="Date", y="Close"
                                 , color="break_out_signal"
-                                ,color_discrete_map = {'Yes':'green'
+                                , symbol = 'break_down_150ema'
+                                , color_discrete_map = {'Yes':'green'
                                                        ,'Yes Buy':'yellow'
                                                        ,'No':'grey'
-                                                       ,'Sell': 'pink'
+                                                       ,'Sell': 'red'
                                                       }
                                 #,color_discrete_sequence = ['red','blue']
                                 , title = closeTitle )
@@ -207,12 +208,11 @@ st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
 volumeTitle = ticker[0] + ' Volume'
 fig_volume = px.bar(df, x="Date", y="Volume" 
                         #,color="break_out",color_discrete_map = {'Yes':'green','No':'grey'}
-                        ,color="break_out_signal"
-                        ,symbol = 'break_down_150ema'
-                        ,color_discrete_map = {'Yes':'green'
+                        , color="break_out_signal"
+                        , color_discrete_map = {'Yes':'green'
                                                ,'Yes Buy':'yellow'
                                                ,'No':'grey'
-                                               ,'Sell': 'pink'
+                                               ,'Sell': 'red'
                                               }
                        ,title =  volumeTitle)
 st.plotly_chart(fig_volume,key='bar1')
