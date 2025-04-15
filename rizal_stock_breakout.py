@@ -128,6 +128,7 @@ df = findBreakOut(df,ticker)
 df = breakOutSignals(df)
 
 lastBreakOutSignal = df['break_out_signal'][0]
+break_down_150ema = df['break_down_150ema'][0]
 
 
 
@@ -175,6 +176,8 @@ with col2:
         st.write('* __returnOnEquity:__  ',round(returnOnEquity*100,1),'__%__',':x:')
     if operatingMargins < 0.1 :
         st.write('* __operatingMargins:__  ',round(operatingMargins*100,1),'__%__',' :x:')
+    if break_down_150ema == 'Yes':
+        st.write('* __break down below 150EMA:  Yes__ :x:')
 
 
 #st.markdown("#####")
