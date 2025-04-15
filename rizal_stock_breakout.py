@@ -177,7 +177,7 @@ with col2:
     if operatingMargins < 0.1 :
         st.write('* __operatingMargins:__  ',round(operatingMargins*100,1),'__%__',' :x:')
     if break_down_150ema == 'Yes':
-        st.write('* __Below 150EMA__ :x:')
+        st.write('* __Above 150EMA:  No!__ :x:')
 
 
 #st.markdown("#####")
@@ -191,7 +191,7 @@ with col3:
     if operatingMargins >= 0.2 :
         st.write('* __operatingMargins:__',round(operatingMargins*100,1),'__%__',':heavy_check_mark:')
     if break_down_150ema == 'No':
-        st.write('* __Above 150EMA:__ :heavy_check_mark:')
+        st.write('* __Above 150EMA:  Yes!__ :heavy_check_mark:')
     
 
 
