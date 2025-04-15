@@ -207,7 +207,8 @@ st.plotly_chart(fig_close_prices, key="scatter1")#, on_select="rerun")
 volumeTitle = ticker[0] + ' Volume'
 fig_volume = px.bar(df, x="Date", y="Volume" 
                         #,color="break_out",color_discrete_map = {'Yes':'green','No':'grey'}
-                        , color="break_out_signal"
+                        ,color="break_out_signal"
+                        ,symbol = 'break_down_150ema'
                         ,color_discrete_map = {'Yes':'green'
                                                ,'Yes Buy':'yellow'
                                                ,'No':'grey'
