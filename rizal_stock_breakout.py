@@ -37,6 +37,7 @@ def exponentialMovingAveragesClosePrice(df):
     df['EMA10']= df['Close'].ewm(span=10).mean()
     df['EMA20']= df['Close'].ewm(span=20).mean()
     df['EMA50']= df['Close'].ewm(span=50).mean()
+    df['EMA150']= df['Close'].ewm(span=150).mean()
     return df.sort_values(by=['Date'],ascending=[False])
     
 
@@ -49,6 +50,11 @@ def findBreakOut(df,ticker):
                 ,CASE 
                 WHEN Close > EMA10 AND Close > EMA20 AND Close > EMA50 THEN 'Yes'
                 ELSE 'No' END AS 'break_out'
+
+                ,CASE 
+                WHEN Close < EMA150 THEN 'Yes'
+                ELSE 'No' END AS break_down_150ema
+                
                 FROM df
                 """.format(ticker=ticker)
     return sqldf(qry,locals())
