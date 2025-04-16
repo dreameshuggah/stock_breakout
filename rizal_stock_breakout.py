@@ -135,7 +135,7 @@ df = breakOutSignals(df)
 
 lastBreakOutSignal = df['break_out_signal'][0]
 break_down_150ema = df['break_down_150ema'][0]
-
+breakdown = df['breakdown'][0]
 
 
 recent_df = fetchRecent(ticker,recent_ls)
