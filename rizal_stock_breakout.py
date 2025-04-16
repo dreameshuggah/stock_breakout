@@ -53,6 +53,12 @@ def findBreakOut(df,ticker):
                 ELSE 'No' END AS 'break_out'
 
                 ,CASE 
+                WHEN Close < EMA10 AND Close < EMA20 AND Close < EMA50 THEN 'Yes'
+                ELSE 'No' END AS 'break_down'
+
+                
+
+                ,CASE 
                 WHEN Close < EMA150 THEN 'Yes'
                 ELSE 'No' END AS break_down_150ema
                 
