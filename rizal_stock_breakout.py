@@ -182,6 +182,8 @@ with col2:
         st.write('* __returnOnEquity:__  ',round(returnOnEquity*100,1),'__%__',':x:')
     if operatingMargins < 0.1 :
         st.write('* __operatingMargins:__  ',round(operatingMargins*100,1),'__%__',' :x:')
+    if breakdown == 'Yes':
+        st.write('* __Down Trend: Below 50,20,10 EMA!__ :x:')
     if break_down_150ema == 'Yes':
         st.write('* __Down Trend: Below 150EMA!__ :x:')
     
@@ -243,7 +245,7 @@ st.plotly_chart(fig_volume,key='bar1')
 breakout_cols = ['ticker','Date','Open','Close','Volume'
                  ,'EMA10','EMA20','EMA50','EMA150'
                  #,'break_out'
-                 ,'break_out_signal','break_down_150ema']
+                 ,'break_out_signal','breakdown','break_down_150ema']
 st.dataframe(df[breakout_cols])
 
 
